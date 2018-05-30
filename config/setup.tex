@@ -1,0 +1,130 @@
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{latexsym}
+\usepackage{makeidx}
+% Inlcude Concordia thesis's cover page style.
+\usepackage{concordia-style/cuthesis}
+\usepackage{url}
+\usepackage{listings}
+%\usepackage{amsthm}
+\usepackage{empheq}
+\usepackage{caption}
+\usepackage{fullpage}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage[
+ colorlinks,linkcolor=blue,urlcolor=blue,
+ citecolor=blue,pdftex,pdfa]{hyperref}
+% Page dimensions and margin settings as required by Concordia University
+\usepackage[%
+		lmargin=1.5in,
+		rmargin=1.0in,
+		tmargin=1.0in,
+		bmargin=1.0in,
+		%includefoot
+		]{geometry}
+\usepackage{fancyhdr}
+\usepackage[nottoc, notlof, notlot]{tocbibind}
+\usepackage{minitoc}
+\usepackage[intoc]{nomencl}
+\setcounter{minitocdepth}{2}
+\mtcindent=15pt
+\hyphenpenalty 5000
+\tolerance=10000
+
+%-- Font settings:
+%- main font: Latin Modern Roman
+% The Latin Modern fonts are enhanced versions of the Computer Modern fonts. They have enhanced metrics and glyph coverage.
+% http://www.tug.dk/FontCatalogue/latinmodernroman/
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+% Always put after.
+\usepackage{lmodern}
+%------------------------
+
+% Common commands
+%
+%\input{config/latex-commands}
+
+\newcommand{\todo}[0]
+{
+    {\Large \[TODO\]}
+}
+
+
+% Number all sections, but include only section and subsections in the ToC.
+%\setcounter{secnumdepth}{4}
+%\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+%
+% Top heading
+%
+%	\begin{figure}
+%		\includegraphics[width=20pt]{gipsystar}
+%	\end{figure}
+\setcounter{topnumber}{9}
+\setcounter{bottomnumber}{9}
+\setcounter{totalnumber}{20}
+\setcounter{dbltopnumber}{9}
+
+% My commands
+\renewcommand{\bibname}{References}
+\renewcommand{\nomname}{List of Abbreviations}
+
+% Be more generous about placing floats.
+%\renewcommand{\topfraction}{0.95}
+%\renewcommand{\bottomfraction}{0.95}
+%\renewcommand{\textfraction}{0.05}
+%\renewcommand{\floatpagefraction}{0.8}
+
+\renewcommand{\topfraction}{.85}
+\renewcommand{\bottomfraction}{.7}
+\renewcommand{\textfraction}{.15}
+\renewcommand{\floatpagefraction}{.66}
+\renewcommand{\dbltopfraction}{.66}
+\renewcommand{\dblfloatpagefraction}{.66}
+%\renewcommand{\api}{\fontfamily{pcr}\selectfont}%
+
+\newcommand{\xf}[1]{Figure~\ref{#1}}
+\newcommand{\xp}[1]{page~\pageref{#1}}
+\newcommand{\xs}[1]{Section~\ref{#1}}
+\newcommand{\xa}[1]{Appendix~\ref{#1}}
+\newcommand{\xc}[1]{Chapter~\ref{#1}}
+\newcommand{\xt}[1]{Table~\ref{#1}}
+\newcommand{\xl}[1]{Listing~\ref{#1}}
+\newcommand{\xe}[1]{Equation~\ref{#1}}
+
+%
+% Abbrs
+%
+
+\newcommand{\rpc}{{RPC\index{RPC}}}
+\newcommand{\rmi}{{RMI\index{RMI}}}
+\newcommand{\clp}{{CLP\index{CLP}}}
+\newcommand{\tlp}{{TLP\index{TLP}}}
+\newcommand{\slp}{{SLP\index{SLP}}}
+\newcommand{\complus}{{DCOM+\index{DCOM+}}}
+\newcommand{\corba}{{CORBA\index{CORBA}}}
+\newcommand{\jini}{{Jini\index{Jini}}}
+\newcommand{\dotnet}{{.NET Remoting\index{.NET Remoting}}}
+\newcommand{\gnu}{{GNU\index{GNU}}}
+\newcommand{\tcpip}{{TCP/IP\index{TCP/IP}}}
+\newcommand{\AST}{{AST\index{AST}}}
+
+ 
+%
+% OS
+%
+
+\newcommand{\unix}{\index{Unix@{\sc{Unix}}}{\sc{Unix}}}
+\newcommand{\macos}[1]{\index{Mac OS #1@{\sc{Mac OS #1}}}{\sc{Mac OS #1}}}
+\newcommand{\linux}{\index{Linux@{\sc{Linux}}}{\sc{Linux}}}
+\newcommand{\rhl}[1]{\index{Red Hat Linux #1@{\sc{Red Hat Linux #1}}}{\sc{Red Hat Linux #1}}}
+\newcommand{\fcore}[1]{\index{Fedora Core #1@{\sc{Fedora Core #1}}}{\sc{Fedora Core #1}}}
+\newcommand{\ubuntu}[1]{\index{Ubuntu #1@{\sc{Ubuntu #1}}}{\sc{Ubuntu #1}}}
+\newcommand{\debian}[1]{\index{Debian #1@{\sc{Debian #1}}}{\sc{Debian #1}}}
+\newcommand{\solaris}[1]{\index{Solaris #1@{\sc{Solaris #1}}}{\sc{Solaris #1}}}
+\newcommand{\win}[1]{\index{Windows #1@{\sc{Windows #1}}}{\sc{Windows #1}}}

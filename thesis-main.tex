@@ -1,0 +1,107 @@
+%-------------------
+%-- Author: Sleiman Rabah, 2018. 
+%-
+%- Concordia University guidlines:
+% 1) Thesis Preparation, Examination Procedures and Regulations:
+%     http://www.concordia.ca/content/dam/sgs/docs/handbooks/thesispreparationguide.pdf
+% 2) School of Graduate Studies: http://www.concordia.ca/sgs/resources/handbooks.html
+
+%--- FEATURES (to be completed): 
+%- * metadata injection.
+%- * PDA style.
+
+\documentclass[letterpaper,11pt,onecolumn,final]{report}  
+
+%--------------------------------------------------------------------------------------------
+%--- Defines necessary commands, author's and department's info and import required packages.  
+\input{config/setup}
+
+%--- Configure the thesis title, author's and examiners' info, cover page(s) content, etc.
+%-- MUST be included after including the setup file.
+\input{config/constants}
+%--------------------------------------------------------------------------------------------
+
+
+
+%----------------------------------------------------------------------------------------------
+%--   Enable/disable PDF/A format. Required as a final submission fomat by Concordia university. 
+%--   Disabled by default.
+%--   Requires the following files to be present in the same directory: pdfa.xmp, pdfa-1b.xmp, pdfa-1b.xmpi, pdfx.sty and sRGBIEC1966-2.1.icm 
+\newif\ifpdfa
+\pdfatrue
+%\pdfafalse
+
+\ifpdfa
+%****************
+% define medatata
+%________________
+\def\xmpAuthor{\authorfullname}
+\def\Subject{Master's Thesis} % Or PhD Thesis
+% List of keywords to be included in the final PDF file to be submitted.
+\def\Keywords{network virtualization, virtual network, virtual machine, restful web services, jersey,broker-based architecture}
+
+\pdfinfo{%
+    /Title    (\authorfullname)
+    /Author   (\authorfullname)
+    /Subject  (\Subject)
+    /Keywords (\Keywords)
+    /ModDate  (\pdfcreationdate)
+    /Trapped  /False
+}
+\usepackage{xmpincl}
+\usepackage[a-1b]{pdfx}
+\fi
+
+\PassOptionsToPackage{}{hyperref}
+
+
+% Make the list of abreviations.
+\makenomenclature
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%% <Thesis Header> %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{pages/abstract}
+\input{pages/acknowledgments}
+ 
+ 
+%%%%%%%%%%%%%%%%%%%% <Thesis Body> %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-- Abbrs.
+\input{pages/abbreviation}
+\printnomenclature 
+
+%-------------------------------------------------------
+%--------- Chapters of the Thesis    -------------------
+%-------------------------------------------------------
+%-- Introduction.
+%-- Change page numbering from Roman to Arabic.
+\pagenumbering{arabic} 
+
+%--
+\input{chapters/chapter1/ch01-index}
+\input{chapters/chapter2/ch02-index}
+\input{chapters/chapter3/ch03-index}
+\input{chapters/chapter4/ch04-index}
+\input{chapters/chapter5/ch05-index}
+\input{chapters/conclusion/conclusion}
+%--------------------------------------------------------
+
+
+%-------------------------------------------------------
+%-- Bibliography config and include. 
+%-------------------------------------------------------
+%\addcontentsline{toc}{chapter}{Bibliography}
+%\label{chapt:bibliography}
+\bibliography{references/references}
+%\bibliographystyle{alpha}
+%\bibliographystyle{plain}
+%\bibliographystyle{named}
+\bibliographystyle{ieeetr}
+
+%-------------------------------------------------------
+%-- Appendix chapters.
+%-------------------------------------------------------
+\input{appendix/appendix}
+
+\end{document}
+% EOF

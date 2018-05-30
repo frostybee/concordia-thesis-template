@@ -1,0 +1,25 @@
+%-- How to configure texniccenter to work with "nomencl" package.
+% Nomenclature
+%-- see: http://trac.cae.tntech.edu/ttuthesis/wiki/Tips/Nomenclature
+% 1- Go to the Build / Define Output Profiles menu.
+% 2- Click on "LaTeX => PDF" in the profiles list, and click the Copy button to create a new profile.
+% 3- Name the new profile "LaTeX => PDF (Nomenclature)" and click OK.
+% 4- Click on "LaTeX => PDF (Nomenclature): in the profiles list, and in the Makeindex section on the right, ensure the following are set:
+% 5- Do not use MakeIndex in this profile is unchecked (should be by default).
+% 6- Path to MakeIndex executable points to the correct makeindex.exe (should be by default).
+% 7- Command line arguments to pass to MakeIndex (including all quotes shown below):
+    %"%bm".nlo -s nomencl.ist -o "%bm".nls
+% Note for people using TeXLive 2010: use %tm instead of %bm ( reference here)
+% 8- Click the OK button and the new profile is complete.
+% 9- Now go to Build/Select Output Profile and choose "LaTeX => PDF (Nomenclature)" 
+
+ 
+%\chapter*{List of Abbreviations}
+%\chaptermark{List of Abbreviations}
+%\addcontentsline{toc}{chapter}{List of Abbreviations}
+
+\nomenclature{Abbr}{Abbreviation}
+\nomenclature{Abbr1}{Abbreviation 1}
+\nomenclature{Abbr2}{Abbreviation 2}
+\nomenclature{Abbr3}{Abbreviation 3}
+% EOF
